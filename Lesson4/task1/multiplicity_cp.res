@@ -1,0 +1,6 @@
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001    0.001    0.001 task1.py:7(multiplicity)
+        1    0.002    0.002    0.002    0.002 task1.py:7(multiplicity)
+        1    0.002    0.002    0.002    0.002 task1.py:7(multiplicity)
+        1    0.003    0.003    0.003    0.003 task1.py:7(multiplicity)
+        1    0.004    0.004    0.004    0.004 task1.py:7(multiplicity)
