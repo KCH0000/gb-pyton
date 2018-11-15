@@ -43,6 +43,8 @@ class NumberBase:
             dec = (x + y + dec) // self.base
             i += 1
         self.sum = ''.join(res)
+        first.reverse()
+        second.reverse()
         return NumberBase(self.sum, self.base)
 
     def __mul__(self, other):
@@ -56,6 +58,8 @@ class NumberBase:
         second = other.num
         mult_list = []
         temp = collections.deque()
+        first.reverse()
+        second.reverse()
         dec = 0
         for i in range(0, len(second)):
             temp.clear()
@@ -75,6 +79,8 @@ class NumberBase:
         for num in mult_list:
             res = res + NumberBase(num, self.base)
         self.mult = ''.join(res.num)
+        first.reverse()
+        second.reverse()
         return res
 
 
@@ -86,7 +92,7 @@ class NumberBase:
 # b = NumberBase(b, base_)
 
 a = NumberBase('556', 16)
-b = NumberBase('0', 16)
+b = NumberBase('1', 16)
 
 summ = a + b
 mult = a * b
