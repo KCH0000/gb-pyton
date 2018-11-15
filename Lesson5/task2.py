@@ -43,17 +43,23 @@ class NumberBase:
             dec = (x + y + dec) // self.base
             i += 1
         self.sum = ''.join(res)
+        first.reverse()
+        second.reverse()
         return NumberBase(self.sum, self.base)
 
     def __mul__(self, other):
+        if list(self.num) == ['0'] or list(other.num) == ['0']:
+            self.num.clear()
+            other.num.clear()
+            self.num = other.num = ['0']
         if self.base != other.base:
             return False  # Тут нужно написать преобразование к общему основанию.
         first = self.num
         second = other.num
-        first.reverse()
-        second.reverse()
         mult_list = []
         temp = collections.deque()
+        first.reverse()
+        second.reverse()
         dec = 0
         for i in range(0, len(second)):
             temp.clear()
@@ -70,22 +76,23 @@ class NumberBase:
                 j += 1
             mult_list.append(''.join(temp))
         res = NumberBase('0', self.base)
-        print(mult_list)
         for num in mult_list:
             res = res + NumberBase(num, self.base)
         self.mult = ''.join(res.num)
+        first.reverse()
+        second.reverse()
         return res
 
 
-base_ = int(input('В какой системе будем считать?(int): '))
-a = input("Ведите первое число: ")
-b = input("Ведите второе число: ")
+# base_ = int(input('В какой системе будем считать?(int): '))
+# a = input("Ведите первое число: ")
+# b = input("Ведите второе число: ")
+#
+# a = NumberBase(a, base_)
+# b = NumberBase(b, base_)
 
-a = NumberBase(a, base_)
-b = NumberBase(b, base_)
-
-# a = NumberBase('ff', 16)
-# b = NumberBase('55', 16)
+a = NumberBase('556', 16)
+b = NumberBase('1', 16)
 
 summ = a + b
 mult = a * b
