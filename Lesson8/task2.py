@@ -39,9 +39,8 @@ class Huffman:
             return self.string
 
     def encode(self):
-        if self.huffnam_tabel != {}:
-            print('Строка уже закодирована')
-            return False
+        if self.huffnam_tabel != {} or self.string == '':
+            return self.string
         for symbol, frequency in Counter(self.string).items():
             self.tree.append((frequency, Leaf(symbol)))
         self._sort()
@@ -59,9 +58,8 @@ class Huffman:
         return self.string
 
     def decode(self):
-        if self.huffnam_tabel == {}:
-            print('Нечего декодировать')
-            return False
+        if self.huffnam_tabel == {} or self.string == '':
+            return self.string
         decoded = ''
         symbol = ''
         for c in self.string:
@@ -127,4 +125,4 @@ def test_huffman(n, _len):
             print("Test Fail")
     print("Test OK")
 
-# test_huffman(100, 10000)
+test_huffman(100, 1000)
